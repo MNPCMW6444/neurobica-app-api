@@ -8,11 +8,8 @@ export default function SideBar() {
       href="/
     "
     >
-      Home
+      user
     </SidebarItem>,
-    <SidebarItem href="/my-account">My Account</SidebarItem>,
-    <SidebarItem href="/my-brain">My Brain</SidebarItem>,
-    <SidebarItem href="/train-my-brain">Train My Brain</SidebarItem>,
   ];
 
   return (
