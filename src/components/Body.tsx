@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
+import User from "./pages/user/User";
+import IsAlive from "./pages/is-alive/IsAlive";
 import "./Body.css";
 
 export default function Body() {
@@ -7,7 +8,8 @@ export default function Body() {
     <div className="body">
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/isalive" element={<IsAlive />} />
+          <Route path="/user" element={<User />} />
         </Routes>
       </Router>
     </div>
