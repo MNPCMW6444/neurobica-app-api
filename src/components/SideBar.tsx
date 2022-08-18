@@ -5,9 +5,9 @@ const { Sidebar, SidebarItem } = require("react-responsive-sidebar");
 
 export default function SideBar() {
   const pages = [
-    <SidebarItem href="/isalive">isAlive</SidebarItem>,
+    <SidebarItem href="/isalive">areyoualive</SidebarItem>,
     <SidebarItem href="/user">
-      user:{" "}
+      user:
       {
         <ul>
           <li>

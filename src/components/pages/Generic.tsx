@@ -5,15 +5,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { padding } from "@mui/system";
 import { Typography } from "@mui/material";
 
 export default function Generic(props: {
   type: string;
   ePURL: string;
-  params: { name: string; type: string }[];
-  result: { name: string; type: string }[];
-  errors: { code: number; message: string }[];
+  params: { name: string; description: string }[];
+  results: { objectDescription: string[]; description: string }[];
+  errors: { code: number; message: string; description: string }[];
 }) {
   return (
     <div style={{ padding: "10%" }}>
@@ -62,29 +61,125 @@ export default function Generic(props: {
         >
           Type: {props.type}
         </Typography>
+        <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                <TableCell>Parameters:</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {"row.name"}
-                </TableCell>
-                <TableCell align="right">{"row.calories"}</TableCell>
-                <TableCell align="right">{"row.fat"}</TableCell>
-                <TableCell align="right">{"row.carbs"}</TableCell>
-                <TableCell align="right">{"row.protein"}</TableCell>
+              {props.params.map((param) => (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>{"name: " + param.name}</TableCell>
+                </TableRow>
+              ))}
+              {props.params.length === 0 && (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>None</TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Possible (200) Results:</TableCell>
               </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.results.map((result) => (
+                <>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>
+                      {result.objectDescription.length === 1 ? (
+                        <span>
+                          <b>Object Description: </b>
+                          {result.objectDescription[0]}
+                        </span>
+                      ) : (
+                        <b>Object Description: </b>
+                      )}
+                    </TableCell>
+                  </TableRow>
+                  {result.objectDescription.length > 1 &&
+                    result.objectDescription.map((line) => (
+                      <TableRow
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell>{line}</TableCell>
+                      </TableRow>
+                    ))}
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>
+                      <b>Description: </b> {result.description}
+                    </TableCell>
+                  </TableRow>
+                </>
+              ))}
+              {props.results.length === 0 && (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>None</TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Possible Errors:</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.errors.map((error) => (
+                <>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>
+                      <b>Code: </b> {error.code}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>
+                      <b>Mesage: </b> {error.message}
+                    </TableCell>
+                  </TableRow>
+                  <TableRow
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell>
+                      <b>Description: </b> {error.description}
+                    </TableCell>
+                  </TableRow>
+                </>
+              ))}
+              {props.errors.length === 0 && (
+                <TableRow
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell>None</TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </TableContainer>
