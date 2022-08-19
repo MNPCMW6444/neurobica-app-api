@@ -1,10 +1,10 @@
 import React from "react";
-import Generic from "../Generic";
+import Route from "../Route";
 
 export default function Users() {
   return (
     <div>
-      <Generic type="get" ePURL="/users" params={[]} results={[]} errors={[]} />{" "}
+      <Route ePURL="/user/" description="Users REST" />
     </div>
   );
 }
