@@ -48,9 +48,18 @@ export default function Signin() {
             "This means the server is obviously up because it responds but one of the Dbs, the main and/or the OC are unreachable",
         },
         {
+          code: 500,
+          messageObject: [
+            'serverError: "Unexpected error occurred in the server" }',
+          ],
+          description:
+            "This means the server is obviously up because it responds but one of the Dbs, the main and/or the OC are unreachable",
+        },
+        {
           code: 400,
           messageObject: ['{clientError: "Wrong email or password"}'],
-          description: "This means the email or the password is wrong",
+          description:
+            "This means the email or the password is wrong, or missing",
         },
       ]}
     />
