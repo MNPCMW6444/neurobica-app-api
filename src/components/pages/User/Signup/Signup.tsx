@@ -56,6 +56,14 @@ export default function Signin() {
         },
         {
           code: 400,
+          messageObject: [
+            '{clientError: "At least one of the fields are missing"}',
+          ],
+          description:
+            "This means the email, the password or the passwordagain parameter is missing",
+        },
+        {
+          code: 400,
           messageObject: ['{clientError: "Passwords doesn\'t match"}'],
           description: "This means the two passwords aren't the same",
         },
