@@ -16,7 +16,9 @@ export default function SideBar() {
             </a>
           </li>
           <li>
-            <a href="/user/signup">signup</a>
+            <a className="notlink" href="/user/signup">
+              signup
+            </a>
           </li>
         </ul>
       }

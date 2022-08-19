@@ -11,9 +11,9 @@ export default function Body() {
       <Router>
         <Routes>
           <Route path="/isalive" element={<IsAlive />} />
+          <Route path="/user" element={<User />} />
           <Route path="/user/signin" element={<Signin />} />
           <Route path="/user/signup" element={<Signup />} />
-          <Route path="/user" element={<User />} />
         </Routes>
       </Router>
     </div>
