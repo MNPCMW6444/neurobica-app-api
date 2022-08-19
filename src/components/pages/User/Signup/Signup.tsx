@@ -1,3 +1,4 @@
+import { match } from "assert";
 import Generic from "../../Generic";
 
 export default function Signin() {
@@ -39,7 +40,7 @@ export default function Signin() {
             {
               name: "jwt",
               description:
-                "A ascure httpOnly cookie that contains the Json Web Token",
+                "A secure httpOnly cookie that contains the Json Web Token",
             },
           ],
         },
@@ -52,6 +53,17 @@ export default function Signin() {
           ],
           description:
             "This means the server is obviously up because it responds but one of the Dbs, the main and/or the OC are unreachable",
+        },
+        {
+          code: 400,
+          messageObject: ['{clientError: "Passwords doesn\'t match"}'],
+          description: "This means the two passwords aren't the same",
+        },
+        {
+          code: 400,
+          messageObject: ['{clientError: "Email already exists"}'],
+          description:
+            "This means that there is already an account using this email",
         },
       ]}
     />

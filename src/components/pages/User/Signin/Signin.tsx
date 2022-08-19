@@ -33,7 +33,7 @@ export default function Signin() {
             {
               name: "jwt",
               description:
-                "A ascure httpOnly cookie that contains the Json Web Token",
+                "A secure httpOnly cookie that contains the Json Web Token",
             },
           ],
         },
@@ -46,6 +46,11 @@ export default function Signin() {
           ],
           description:
             "This means the server is obviously up because it responds but one of the Dbs, the main and/or the OC are unreachable",
+        },
+        {
+          code: 400,
+          messageObject: ['{clientError: "Wrong email or password"}'],
+          description: "This means the email or the password is wrong",
         },
       ]}
     />
