@@ -1,44 +1,14 @@
-import { match } from "assert";
 import Generic from "../../Generic";
 
-export default function Signin() {
+export default function Signedin() {
   return (
     <Generic
-      type="POST"
-      ePURL="/user/signup"
-      params={[
-        {
-          name: "email",
-          description: "The user's account's email",
-          required: true,
-        },
-        {
-          name: "fullname",
-          description: "The user's Full name - how he wants to be called",
-          required: true,
-        },
-        {
-          name: "password",
-          description: "The user's account's desired password",
-          required: true,
-        },
-        {
-          name: "passwordagain",
-          description:
-            "The user's account's desired password, typed again to verify brain-browser connectivity integrity",
-          required: true,
-        },
-        {
-          name: "rememberme",
-          description:
-            "A boolean flag that will help set the cookie expiration date. if true - the expiration time will be 30 days.",
-          required: false,
-          default: "false (expiration time will be set to 6 hours)",
-        },
-      ]}
+      type="GET"
+      ePURL="/user/signedin"
+      params={[]}
       results={[
         {
-          objectDescription: [],
+          objectDescription: ["{user} - mongo modal interface"],
           description:
             "The login was successfull and you have a jwt as a cookie",
           cookies: [

@@ -20,6 +20,11 @@ export default function SideBar() {
               signup
             </a>
           </li>
+          <li>
+            <a className="notlink" href="/user/signedin">
+              signedin
+            </a>
+          </li>
         </ul>
       }
     </SidebarItem>,
