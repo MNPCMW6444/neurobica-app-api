@@ -12,22 +12,6 @@ export default function Signin() {
           description: "The user's account's email",
           required: true,
         },
-        {
-          name: "fullname",
-          description: "The user's Full name - how he wants to be called",
-          required: true,
-        },
-        {
-          name: "password",
-          description: "The user's account's desired password",
-          required: true,
-        },
-        {
-          name: "passwordagain",
-          description:
-            "The user's account's desired password, typed again to verify brain-browser connectivity integrity",
-          required: true,
-        },
       ]}
       results={[
         {
@@ -51,21 +35,14 @@ export default function Signin() {
           messageObject: [
             '{clientError: "At least one of the fields are missing"}',
           ],
-          description:
-            "This means the email, the fullname, the password or the passwordagain parameter is missing",
+          description: "This means the email or the key parameter is missing",
         },
         {
           code: 400,
           messageObject: [
-            'clientError: "Password isn\'t strong enough, the value is" + passStrength',
+            '{clientError: "An account with this email already exists"}',
           ],
-          description: "This means the two passwords aren't the same",
-        },
-        {
-          code: 400,
-          messageObject: ['{clientError: "Passwords doesn\'t match"}'],
-          description:
-            "This means the password doesn't meet the minimum complexity policy - an ID of at least 2 (Medium), also the ID is given",
+          description: "As it is",
         },
       ]}
     />
