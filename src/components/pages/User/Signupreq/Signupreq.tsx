@@ -5,7 +5,7 @@ export default function Signin() {
   return (
     <Generic
       type="POST"
-      ePURL="/user/signup"
+      ePURL="/user/signupreq"
       params={[
         {
           name: "email",
@@ -28,26 +28,13 @@ export default function Signin() {
             "The user's account's desired password, typed again to verify brain-browser connectivity integrity",
           required: true,
         },
-        {
-          name: "rememberme",
-          description:
-            "A boolean flag that will help set the cookie expiration date. if true - the expiration time will be 30 days.",
-          required: false,
-          default: "false (expiration time will be set to 6 hours)",
-        },
       ]}
       results={[
         {
-          objectDescription: [],
+          objectDescription: ['{result:"email successfully sent to "+email}'],
           description:
-            "The login was successfull and you have a jwt as a cookie",
-          cookies: [
-            {
-              name: "jwt",
-              description:
-                "A secure httpOnly cookie that contains the Json Web Token",
-            },
-          ],
+            "The request is valid and an email was send with sendgrid",
+          cookies: [],
         },
       ]}
       errors={[
@@ -79,19 +66,6 @@ export default function Signin() {
           messageObject: ['{clientError: "Passwords doesn\'t match"}'],
           description:
             "This means the password doesn't meet the minimum complexity policy - an ID of at least 2 (Medium), also the ID is given",
-        },
-        {
-          code: 400,
-          messageObject: [
-            '{clientError: "An account with this email already exists"}',
-          ],
-          description: "As it is",
-        },
-        {
-          code: 400,
-          messageObject: ['{clientError: "Email already exists"}'],
-          description:
-            "This means that there is already an account using this email",
         },
       ]}
     />
