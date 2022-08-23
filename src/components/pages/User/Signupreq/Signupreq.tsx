@@ -32,10 +32,8 @@ export default function Signin() {
         },
         {
           code: 400,
-          messageObject: [
-            '{clientError: "At least one of the fields are missing"}',
-          ],
-          description: "This means the email or the key parameter is missing",
+          messageObject: ['{clientError: "The email is missing"}'],
+          description: "This means that the email is missing",
         },
         {
           code: 400,

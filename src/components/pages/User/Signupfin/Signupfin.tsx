@@ -73,6 +73,12 @@ export default function Signin() {
         },
         {
           code: 400,
+          messageObject: ['{clientError: "The key is wrong"}'],
+          description:
+            "This means that the key what was send by email doesnt mactch the key passed as a parameter",
+        },
+        {
+          code: 400,
           messageObject: [
             'clientError: "Password isn\'t strong enough, the value is" + passStrength',
           ],
