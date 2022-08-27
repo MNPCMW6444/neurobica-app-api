@@ -17,12 +17,12 @@ export default function SideBar() {
           </li>
           <li>
             <a className="notlink" href="/user/signupreq">
-              signup
+              signupreq
             </a>
           </li>
           <li>
             <a className="notlink" href="/user/signupfin">
-              signup
+              signupfin
             </a>
           </li>
           <li>
