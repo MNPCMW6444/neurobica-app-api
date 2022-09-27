@@ -6,6 +6,7 @@ import Signin from "./pages/User/Signin/Signin";
 import Signupreq from "./pages/User/Signupreq/Signupreq";
 import Signupfin from "./pages/User/Signupfin/Signupfin";
 import Signedin from "./pages/User/Signedin/Signedin";
+import Signout from "./pages/User/Signout/Signout";
 
 export default function Body() {
   return (
@@ -15,6 +16,7 @@ export default function Body() {
           <Route path="/isalive" element={<IsAlive />} />
           <Route path="/user" element={<User />} />
           <Route path="/user/signin" element={<Signin />} />
+          <Route path="/user/signout" element={<Signout />} />
           <Route path="/user/signupreq" element={<Signupreq />} />
           <Route path="/user/signupfin" element={<Signupfin />} />
           <Route path="/user/signedin" element={<Signedin />} />
