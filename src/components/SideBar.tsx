@@ -30,6 +30,11 @@ export default function SideBar() {
               signedin
             </a>
           </li>
+          <li>
+            <a className="notlink" href="/user/signeout">
+              signeout
+            </a>
+          </li>
         </ul>
       }
     </SidebarItem>,
