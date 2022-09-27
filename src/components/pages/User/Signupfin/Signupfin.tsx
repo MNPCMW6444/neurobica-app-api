@@ -68,8 +68,7 @@ export default function Signin() {
         {
           code: 400,
           messageObject: ['{clientError: "Passwords doesn\'t match"}'],
-          description:
-            "This means the password doesn't meet the minimum complexity policy - an ID of at least 2 (Medium), also the ID is given",
+          description: "This means the two passwords aren't the same",
         },
         {
           code: 400,
@@ -82,7 +81,8 @@ export default function Signin() {
           messageObject: [
             'clientError: "Password isn\'t strong enough, the value is" + passStrength',
           ],
-          description: "This means the two passwords aren't the same",
+          description:
+            "This means the password doesn't meet the minimum complexity policy - an ID of at least 2 (Medium), also the ID is given",
         },
         {
           code: 400,
